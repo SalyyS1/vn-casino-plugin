@@ -1,0 +1,165 @@
+# Vietnamese Language File
+# Sử dụng MiniMessage format: https://docs.advntr.dev/minimessage/format.html
+
+# Prefix
+prefix: "<gradient:#FFD700:#FFA500>[VNCasino]</gradient> "
+
+# General messages
+general:
+  no-permission: "<red>Bạn không có quyền sử dụng lệnh này!</red>"
+  player-only: "<red>Chỉ người chơi mới có thể sử dụng lệnh này!</red>"
+  reload-success: "<green>Đã tải lại cấu hình thành công!</green>"
+  reload-failed: "<red>Tải lại cấu hình thất bại. Kiểm tra console để biết chi tiết.</red>"
+  invalid-command: "<red>Lệnh không hợp lệ. Sử dụng <yellow>/casino help</yellow> để xem trợ giúp.</red>"
+  command-cooldown: "<red>Vui lòng đợi <yellow>{time}</yellow> giây trước khi thực hiện lại.</red>"
+  database-error: "<red>Lỗi cơ sở dữ liệu. Vui lòng thử lại sau.</red>"
+
+# Economy messages
+economy:
+  insufficient-funds: "<red>Bạn không đủ tiền! Cần: <yellow>{amount}</yellow> {currency}</red>"
+  bet-too-low: "<red>Cược tối thiểu: <yellow>{min}</yellow> {currency}</red>"
+  bet-too-high: "<red>Cược tối đa: <yellow>{max}</yellow> {currency}</red>"
+  win: "<green>✓ Bạn thắng <yellow>{amount}</yellow> {currency}!</green>"
+  lose: "<red>✗ Bạn thua <yellow>{amount}</yellow> {currency}!</red>"
+  push: "<gray>Hòa! Hoàn trả <yellow>{amount}</yellow> {currency}.</gray>"
+  balance: "<aqua>Số dư: <yellow>{balance}</yellow> {currency}</aqua>"
+
+# Game status
+game:
+  already-playing: "<red>Bạn đang chơi một trò chơi khác!</red>"
+  game-in-progress: "<yellow>Trò chơi đang diễn ra...</yellow>"
+  game-not-found: "<red>Không tìm thấy trò chơi!</red>"
+  game-cancelled: "<gray>Trò chơi đã bị hủy.</gray>"
+  game-timeout: "<red>Trò chơi hết thời gian!</red>"
+  game-disabled: "<red>Trò chơi này hiện đang bị vô hiệu hóa.</red>"
+
+# Slot machine
+slots:
+  title: "<gradient:#FFD700:#FFA500>◆ MÁY QUAY SLOTS ◆</gradient>"
+  spinning: "<yellow>⟳ Đang quay...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Kết quả:</gray> {symbols}\n<gold>═══════════════════</gold>"
+  jackpot: "<rainbow>★★★ JACKPOT! ★★★</rainbow>\n<green>Bạn thắng <yellow>{amount}</yellow> {currency}!</green>"
+  multiplier: "<aqua>Hệ số: <yellow>x{multiplier}</yellow></aqua>"
+
+# Blackjack
+blackjack:
+  title: "<gradient:#2C3E50:#34495E>♠ BLACKJACK ♠</gradient>"
+  your-hand: "<aqua>Bài của bạn ({value}):</aqua> {cards}"
+  dealer-hand: "<yellow>Bài nhà cái ({value}):</yellow> {cards}"
+  hidden-card: "<gray>[???]</gray>"
+  hit: "<green>+ Rút bài</green>"
+  stand: "<yellow>⚐ Dừng</yellow>"
+  double: "<gold>↑ Nhân đôi</gold>"
+  blackjack: "<rainbow>★ BLACKJACK! ★</rainbow>"
+  bust: "<red>✗ Quá 21!</red>"
+  choose-action: "<gray>Chọn hành động: <yellow>Rút</yellow> | <yellow>Dừng</yellow> | <yellow>Nhân đôi</yellow></gray>"
+
+# Roulette
+roulette:
+  title: "<gradient:#C0392B:#E74C3C>◉ ROULETTE ◉</gradient>"
+  spinning: "<yellow>◉ Đang quay bánh xe...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Kết quả:</gray> <yellow>{number}</yellow> <{color}>{color-name}</{color}>\n<gold>═══════════════════</gold>"
+  place-bet: "<aqua>Đặt cược vào: <yellow>{bet-type}</yellow></aqua>"
+  bet-types:
+    red: "<red>Đỏ</red>"
+    black: "<dark_gray>Đen</dark_gray>"
+    even: "Chẵn"
+    odd: "Lẻ"
+    low: "Thấp (1-18)"
+    high: "Cao (19-36)"
+    number: "Số {number}"
+
+# Baccarat
+baccarat:
+  title: "<gradient:#8E44AD:#9B59B6>♦ BACCARAT ♦</gradient>"
+  player-hand: "<aqua>Người chơi ({value}):</aqua> {cards}"
+  banker-hand: "<yellow>Nhà cái ({value}):</yellow> {cards}"
+  bet-on: "<gray>Cược vào: <yellow>{side}</yellow></gray>"
+  sides:
+    player: "Người chơi"
+    banker: "Nhà cái"
+    tie: "Hòa"
+  natural: "<rainbow>★ NATURAL {value}! ★</rainbow>"
+
+# Xoc Dia (Shake the Plate)
+xocdia:
+  name: "Xóc Đĩa"
+  title: "<gradient:#FFD700:#FFA500>🎲 XÓC ĐĨA 🎲</gradient>"
+  round-start: "<green>Phiên #{round} bắt đầu! Đặt cược trong {time}s</green>"
+  betting-open: "<yellow>⏰ Đặt cược trong {time} giây!</yellow>"
+  betting-closed: "<yellow>⏸ Hết thời gian đặt cược!</yellow>"
+  shaking: "<yellow>🎲 Đang xóc đĩa...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Kết quả:</gray> <yellow>{result}</yellow>\n<gold>═══════════════════</gold>"
+  win: "<green>✓ Bạn thắng <yellow>{amount}</yellow> VND!</green>"
+  lose: "<red>✗ Bạn thua!</red>"
+  bet-placed: "<green>✓ Đã đặt <yellow>{amount}</yellow> VND vào <yellow>{betType}</yellow></green>"
+  room-select: "<gold>Chọn phòng chơi:</gold>"
+  room-entry: "<green>Bạn đã vào {0}</green>"
+  room-exit: "<yellow>Bạn đã rời phòng</yellow>"
+  min-balance: "<red>Cần tối thiểu {0} VND để vào phòng này</red>"
+  not-in-room: "<red>Bạn chưa vào phòng nào! Dùng /casino xocdia join <room></red>"
+  room-not-found: "<red>Không tìm thấy phòng!</red>"
+  bet-types:
+    chan: "Chẵn"
+    le: "Lẻ"
+    4do: "4 Đỏ"
+    4trang: "4 Trắng"
+    3d1t: "3 Đỏ 1 Trắng"
+    1d3t: "1 Đỏ 3 Trắng"
+    2d2t: "2 Đỏ 2 Trắng"
+  payout-info: "<gray>Tỷ lệ: Chẵn/Lẻ = 1x, 4 Đỏ/4 Trắng = 10x, 3-1/1-3 = 2.45x, 2-2 = 2x</gray>"
+
+# Bau Cua (Gourd-Crab-Shrimp-Fish-Deer-Rooster)
+baucua:
+  name: "Bầu Cua"
+  title: "<gradient:#FFD700:#FFA500>🎲 BẦU CUA 🎲</gradient>"
+  round-start: "<green>Phiên #{round} bắt đầu! Đặt cược trong {time}s</green>"
+  betting-open: "<yellow>⏰ Đặt cược trong {time} giây!</yellow>"
+  betting-closed: "<yellow>⏸ Hết thời gian đặt cược!</yellow>"
+  rolling: "<yellow>🎲 Đang lắc xúc xắc...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Kết quả:</gray> <yellow>{result}</yellow>\n<gold>═══════════════════</gold>"
+  win: "<green>✓ Bạn thắng <yellow>{amount}</yellow> VND! (<yellow>{matches}</yellow> con trùng)</green>"
+  lose: "<red>✗ Không trùng con nào!</red>"
+  triple: "<rainbow>★★★ BỘ BA {animal}! ★★★</rainbow>"
+  bet-placed: "<green>✓ Đã đặt <yellow>{amount}</yellow> VND vào <yellow>{animal}</yellow></green>"
+  animals:
+    bau: "Bầu"
+    cua: "Cua"
+    tom: "Tôm"
+    ca: "Cá"
+    nai: "Nai"
+    ga: "Gà"
+  payout-info: "<gray>Tỷ lệ: 1 con = 2x, 2 con = 3x, 3 con = 4x</gray>"
+
+# Statistics
+stats:
+  title: "<gradient:#3498DB:#2980B9>▣ THỐNG KÊ ▣</gradient>"
+  personal:
+    total-bets: "<gray>Tổng cược:</gray> <yellow>{amount}</yellow> {currency}"
+    total-wins: "<green>Tổng thắng:</green> <yellow>{amount}</yellow> {currency}"
+    total-losses: "<red>Tổng thua:</red> <yellow>{amount}</yellow> {currency}"
+    net-profit: "<aqua>Lợi nhuận:</aqua> <yellow>{amount}</yellow> {currency}"
+    games-played: "<gray>Trò chơi đã chơi:</gray> <yellow>{count}</yellow>"
+    win-rate: "<gray>Tỷ lệ thắng:</gray> <yellow>{rate}%</yellow>"
+    biggest-win: "<gold>Thắng lớn nhất:</gold> <yellow>{amount}</yellow> {currency}"
+  leaderboard:
+    title: "<gradient:#FFD700:#FFA500>◈ BẢNG XẾP HẠNG ◈</gradient>"
+    entry: "<gray>#{rank}</gray> <yellow>{player}</yellow> - <green>{amount}</green> {currency}"
+
+# Admin commands
+admin:
+  set-multiplier: "<green>Đã đặt hệ số của <yellow>{player}</yellow> thành <yellow>x{multiplier}</yellow></green>"
+  view-stats: "<aqua>Thống kê hệ thống:</aqua>\n<gray>- Tổng người chơi:</gray> <yellow>{players}</yellow>\n<gray>- Tổng cược:</gray> <yellow>{bets}</yellow>\n<gray>- Tổng chi tiêu:</gray> <yellow>{payout}</yellow> {currency}\n<gray>- Lợi nhuận nhà cái:</gray> <yellow>{profit}</yellow> {currency}"
+
+# Help messages
+help:
+  header: "<gold>═══════ <gradient:#FFD700:#FFA500>VNCasino Trợ Giúp</gradient> ═══════</gold>"
+  footer: "<gold>════════════════════════════════</gold>"
+  commands:
+    - "<yellow>/casino open</yellow> - Mở menu casino"
+    - "<yellow>/casino stats</yellow> - Xem thống kê của bạn"
+    - "<yellow>/casino help</yellow> - Hiển thị trợ giúp"
+  admin-commands:
+    - "<yellow>/casinoadmin reload</yellow> - Tải lại cấu hình"
+    - "<yellow>/casinoadmin stats</yellow> - Thống kê hệ thống"
+    - "<yellow>/casinoadmin setmultiplier <player> <multiplier></yellow> - Đặt hệ số"

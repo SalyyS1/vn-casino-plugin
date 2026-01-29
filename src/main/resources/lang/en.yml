@@ -1,0 +1,165 @@
+# English Language File
+# Using MiniMessage format: https://docs.advntr.dev/minimessage/format.html
+
+# Prefix
+prefix: "<gradient:#FFD700:#FFA500>[VNCasino]</gradient> "
+
+# General messages
+general:
+  no-permission: "<red>You don't have permission to use this command!</red>"
+  player-only: "<red>Only players can use this command!</red>"
+  reload-success: "<green>Configuration reloaded successfully!</green>"
+  reload-failed: "<red>Failed to reload configuration. Check console for details.</red>"
+  invalid-command: "<red>Invalid command. Use <yellow>/casino help</yellow> for help.</red>"
+  command-cooldown: "<red>Please wait <yellow>{time}</yellow> seconds before doing this again.</red>"
+  database-error: "<red>Database error. Please try again later.</red>"
+
+# Economy messages
+economy:
+  insufficient-funds: "<red>Insufficient funds! Required: <yellow>{amount}</yellow> {currency}</red>"
+  bet-too-low: "<red>Minimum bet: <yellow>{min}</yellow> {currency}</red>"
+  bet-too-high: "<red>Maximum bet: <yellow>{max}</yellow> {currency}</red>"
+  win: "<green>✓ You won <yellow>{amount}</yellow> {currency}!</green>"
+  lose: "<red>✗ You lost <yellow>{amount}</yellow> {currency}!</red>"
+  push: "<gray>Push! Returned <yellow>{amount}</yellow> {currency}.</gray>"
+  balance: "<aqua>Balance: <yellow>{balance}</yellow> {currency}</aqua>"
+
+# Game status
+game:
+  already-playing: "<red>You're already playing a game!</red>"
+  game-in-progress: "<yellow>Game in progress...</yellow>"
+  game-not-found: "<red>Game not found!</red>"
+  game-cancelled: "<gray>Game cancelled.</gray>"
+  game-timeout: "<red>Game timed out!</red>"
+  game-disabled: "<red>This game is currently disabled.</red>"
+
+# Slot machine
+slots:
+  title: "<gradient:#FFD700:#FFA500>◆ SLOT MACHINE ◆</gradient>"
+  spinning: "<yellow>⟳ Spinning...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Result:</gray> {symbols}\n<gold>═══════════════════</gold>"
+  jackpot: "<rainbow>★★★ JACKPOT! ★★★</rainbow>\n<green>You won <yellow>{amount}</yellow> {currency}!</green>"
+  multiplier: "<aqua>Multiplier: <yellow>x{multiplier}</yellow></aqua>"
+
+# Blackjack
+blackjack:
+  title: "<gradient:#2C3E50:#34495E>♠ BLACKJACK ♠</gradient>"
+  your-hand: "<aqua>Your hand ({value}):</aqua> {cards}"
+  dealer-hand: "<yellow>Dealer's hand ({value}):</yellow> {cards}"
+  hidden-card: "<gray>[???]</gray>"
+  hit: "<green>+ Hit</green>"
+  stand: "<yellow>⚐ Stand</yellow>"
+  double: "<gold>↑ Double</gold>"
+  blackjack: "<rainbow>★ BLACKJACK! ★</rainbow>"
+  bust: "<red>✗ Bust!</red>"
+  choose-action: "<gray>Choose action: <yellow>Hit</yellow> | <yellow>Stand</yellow> | <yellow>Double</yellow></gray>"
+
+# Roulette
+roulette:
+  title: "<gradient:#C0392B:#E74C3C>◉ ROULETTE ◉</gradient>"
+  spinning: "<yellow>◉ Spinning wheel...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Result:</gray> <yellow>{number}</yellow> <{color}>{color-name}</{color}>\n<gold>═══════════════════</gold>"
+  place-bet: "<aqua>Bet on: <yellow>{bet-type}</yellow></aqua>"
+  bet-types:
+    red: "<red>Red</red>"
+    black: "<dark_gray>Black</dark_gray>"
+    even: "Even"
+    odd: "Odd"
+    low: "Low (1-18)"
+    high: "High (19-36)"
+    number: "Number {number}"
+
+# Baccarat
+baccarat:
+  title: "<gradient:#8E44AD:#9B59B6>♦ BACCARAT ♦</gradient>"
+  player-hand: "<aqua>Player ({value}):</aqua> {cards}"
+  banker-hand: "<yellow>Banker ({value}):</yellow> {cards}"
+  bet-on: "<gray>Bet on: <yellow>{side}</yellow></gray>"
+  sides:
+    player: "Player"
+    banker: "Banker"
+    tie: "Tie"
+  natural: "<rainbow>★ NATURAL {value}! ★</rainbow>"
+
+# Xoc Dia (Shake the Plate)
+xocdia:
+  name: "Xoc Dia"
+  title: "<gradient:#FFD700:#FFA500>🎲 XOC DIA 🎲</gradient>"
+  round-start: "<green>Round #{round} started! Place bets within {time}s</green>"
+  betting-open: "<yellow>⏰ Place bets within {time} seconds!</yellow>"
+  betting-closed: "<yellow>⏸ Betting time is over!</yellow>"
+  shaking: "<yellow>🎲 Shaking the plate...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Result:</gray> <yellow>{result}</yellow>\n<gold>═══════════════════</gold>"
+  win: "<green>✓ You won <yellow>{amount}</yellow> VND!</green>"
+  lose: "<red>✗ You lost!</red>"
+  bet-placed: "<green>✓ Placed <yellow>{amount}</yellow> VND on <yellow>{betType}</yellow></green>"
+  room-select: "<gold>Select a room:</gold>"
+  room-entry: "<green>You joined {0}</green>"
+  room-exit: "<yellow>You left the room</yellow>"
+  min-balance: "<red>You need at least {0} VND to join this room</red>"
+  not-in-room: "<red>You must join a room first! Use /casino xocdia join <room></red>"
+  room-not-found: "<red>Room not found!</red>"
+  bet-types:
+    chan: "Even"
+    le: "Odd"
+    4do: "4 Red"
+    4trang: "4 White"
+    3d1t: "3 Red 1 White"
+    1d3t: "1 Red 3 White"
+    2d2t: "2 Red 2 White"
+  payout-info: "<gray>Payout: Even/Odd = 1x, 4 Red/4 White = 10x, 3-1/1-3 = 2.45x, 2-2 = 2x</gray>"
+
+# Bau Cua (Gourd-Crab-Shrimp-Fish-Deer-Rooster)
+baucua:
+  name: "Bau Cua"
+  title: "<gradient:#FFD700:#FFA500>🎲 BAU CUA 🎲</gradient>"
+  round-start: "<green>Round #{round} started! Place bets within {time}s</green>"
+  betting-open: "<yellow>⏰ Place bets within {time} seconds!</yellow>"
+  betting-closed: "<yellow>⏸ Betting time is over!</yellow>"
+  rolling: "<yellow>🎲 Rolling dice...</yellow>"
+  result: "<gold>═══════════════════</gold>\n<gray>Result:</gray> <yellow>{result}</yellow>\n<gold>═══════════════════</gold>"
+  win: "<green>✓ You won <yellow>{amount}</yellow> VND! (<yellow>{matches}</yellow> matches)</green>"
+  lose: "<red>✗ No matches!</red>"
+  triple: "<rainbow>★★★ TRIPLE {animal}! ★★★</rainbow>"
+  bet-placed: "<green>✓ Placed <yellow>{amount}</yellow> VND on <yellow>{animal}</yellow></green>"
+  animals:
+    bau: "Gourd"
+    cua: "Crab"
+    tom: "Shrimp"
+    ca: "Fish"
+    nai: "Deer"
+    ga: "Rooster"
+  payout-info: "<gray>Payout: 1 match = 2x, 2 matches = 3x, 3 matches = 4x</gray>"
+
+# Statistics
+stats:
+  title: "<gradient:#3498DB:#2980B9>▣ STATISTICS ▣</gradient>"
+  personal:
+    total-bets: "<gray>Total bets:</gray> <yellow>{amount}</yellow> {currency}"
+    total-wins: "<green>Total wins:</green> <yellow>{amount}</yellow> {currency}"
+    total-losses: "<red>Total losses:</red> <yellow>{amount}</yellow> {currency}"
+    net-profit: "<aqua>Net profit:</aqua> <yellow>{amount}</yellow> {currency}"
+    games-played: "<gray>Games played:</gray> <yellow>{count}</yellow>"
+    win-rate: "<gray>Win rate:</gray> <yellow>{rate}%</yellow>"
+    biggest-win: "<gold>Biggest win:</gold> <yellow>{amount}</yellow> {currency}"
+  leaderboard:
+    title: "<gradient:#FFD700:#FFA500>◈ LEADERBOARD ◈</gradient>"
+    entry: "<gray>#{rank}</gray> <yellow>{player}</yellow> - <green>{amount}</green> {currency}"
+
+# Admin commands
+admin:
+  set-multiplier: "<green>Set multiplier for <yellow>{player}</yellow> to <yellow>x{multiplier}</yellow></green>"
+  view-stats: "<aqua>System statistics:</aqua>\n<gray>- Total players:</gray> <yellow>{players}</yellow>\n<gray>- Total bets:</gray> <yellow>{bets}</yellow>\n<gray>- Total payout:</gray> <yellow>{payout}</yellow> {currency}\n<gray>- House profit:</gray> <yellow>{profit}</yellow> {currency}"
+
+# Help messages
+help:
+  header: "<gold>═══════ <gradient:#FFD700:#FFA500>VNCasino Help</gradient> ═══════</gold>"
+  footer: "<gold>════════════════════════════════</gold>"
+  commands:
+    - "<yellow>/casino open</yellow> - Open casino menu"
+    - "<yellow>/casino stats</yellow> - View your statistics"
+    - "<yellow>/casino help</yellow> - Show help"
+  admin-commands:
+    - "<yellow>/casinoadmin reload</yellow> - Reload configuration"
+    - "<yellow>/casinoadmin stats</yellow> - System statistics"
+    - "<yellow>/casinoadmin setmultiplier <player> <multiplier></yellow> - Set multiplier"

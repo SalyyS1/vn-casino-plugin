@@ -1,0 +1,55 @@
+name: VNCasino
+version: ${version}
+main: vn.casino.CasinoPlugin
+api-version: '1.21'
+load: POSTWORLD
+author: SalyVn
+description: Professional Vietnamese Casino plugin for Paper/Folia
+website: https://github.com/vncasino
+
+folia-supported: true
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+commands:
+  casino:
+    description: Casino admin commands
+    permission: casino.admin
+    usage: /casino <reload|stats|game|room|jackpot|session>
+    aliases: [casadmin]
+  taixiu:
+    description: Open Tai Xiu game
+    usage: /taixiu [help|history|top|soicau]
+    permission: casino.play
+    aliases: [tx]
+  xocdia:
+    description: Open Xoc Dia game
+    usage: /xocdia [join|leave|rooms|help]
+    permission: casino.play
+    aliases: [xd]
+  baucua:
+    description: Open Bau Cua game
+    usage: /baucua [help|history|top]
+    permission: casino.play
+    aliases: [bc]
+  casinoeco:
+    description: Casino economy commands
+    permission: casino.economy
+    usage: /casinoeco <give|take|set|check|top>
+    aliases: [ceco]
+  verify:
+    description: Verify provably fair session
+    usage: /verify <session_id>
+
+permissions:
+  casino.admin:
+    description: Full admin access to casino plugin
+    default: op
+  casino.economy:
+    description: Manage player economy
+    default: op
+  casino.play:
+    description: Permission to play casino games
+    default: true

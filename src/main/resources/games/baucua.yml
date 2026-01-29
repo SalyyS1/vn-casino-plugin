@@ -1,0 +1,40 @@
+# Bau Cua Game Configuration
+# Traditional Vietnamese dice game with 3 dice and 6 animal symbols
+
+# Round timing
+round-duration: 50        # Total round time in seconds (betting + result)
+betting-duration: 40      # Betting phase duration in seconds
+
+# Bet limits (VND)
+min-bet: 1000            # Minimum bet: 1,000 VND
+max-bet: 5000000         # Maximum bet: 5,000,000 VND
+
+# Payout settings
+payout-per-match: 1.0    # Payout multiplier per matching die (1:1)
+                         # 1 match: bet + (bet * 1) = 2x return
+                         # 2 matches: bet + (bet * 2) = 3x return
+                         # 3 matches: bet + (bet * 3) = 4x return
+
+# Jackpot configuration
+jackpot:
+  contribution-rate: 0.002        # 0.2% of each bet goes to jackpot
+  base-trigger-chance: 0.00001    # 0.001% base chance to trigger
+  trigger-scaling-rate: 0.000001  # +0.0001% per 1M VND in pool
+  min-jackpot: 500000             # Minimum 500,000 VND to trigger
+  seed-amount: 50000              # Reseed with 50,000 VND after win
+
+# Animal icons (Minecraft materials for GUI)
+# These map to the 6 bet types in BauCuaBetType enum
+icons:
+  bau: MELON           # Bầu (Gourd) - value 1
+  cua: RED_DYE         # Cua (Crab) - value 2
+  tom: PINK_DYE        # Tôm (Shrimp) - value 3
+  ca: TROPICAL_FISH    # Cá (Fish) - value 4
+  nai: LEATHER         # Nai (Deer) - value 5
+  ga: FEATHER          # Gà (Rooster) - value 6
+
+# Display settings
+display:
+  title: "§6§lBầu Cua"
+  subtitle: "§e3 Dice Game"
+  result-display-time: 10  # Seconds to show result before next round

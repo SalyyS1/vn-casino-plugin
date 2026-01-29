@@ -1,0 +1,134 @@
+# VN Casino Plugin Configuration
+# Paper 1.21+ with Folia support
+
+# General settings
+general:
+  # Default language (vi, en)
+  language: "vi"
+  # Enable debug logging
+  debug: false
+  # Enable Folia-specific optimizations
+  folia-mode: false
+
+# Currency settings
+currency:
+  # Currency name (singular)
+  name: "VND"
+  # Currency symbol
+  symbol: "₫"
+  # Decimal places (0 for whole numbers)
+  decimals: 0
+  # Use Vault for economy (requires Vault plugin)
+  use-vault: true
+
+# Database configuration
+database:
+  # Database type: sqlite, postgresql, mysql
+  type: "sqlite"
+  # SQLite file path (relative to plugin folder)
+  sqlite-file: "casino.db"
+  # PostgreSQL/MySQL settings
+  host: "localhost"
+  port: 5432
+  database: "vncasino"
+  username: "casino"
+  password: "password"
+  # HikariCP pool settings
+  pool:
+    maximum-pool-size: 10
+    minimum-idle: 2
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1800000
+
+# Redis cache configuration (optional)
+redis:
+  # Enable Redis caching
+  enabled: false
+  host: "localhost"
+  port: 6379
+  password: ""
+  # Redis database index
+  database: 0
+  # Connection pool size
+  pool-size: 8
+  # Connection timeout (ms)
+  timeout: 2000
+
+# Cache settings (Caffeine in-memory cache)
+cache:
+  # Player data cache duration (seconds)
+  player-cache-duration: 300
+  # Maximum cached players
+  max-cached-players: 1000
+  # Game state cache duration (seconds)
+  game-state-duration: 60
+
+# Game general settings
+games:
+  # Minimum bet across all games
+  min-bet: 100
+  # Maximum bet across all games
+  max-bet: 1000000
+  # House edge percentage (0-100)
+  house-edge: 2.5
+  # Animation speed multiplier (0.5 = slower, 2.0 = faster)
+  animation-speed: 1.0
+  # Enable sound effects
+  sounds-enabled: true
+
+# Performance settings
+performance:
+  # Update tick rate for animations (ticks, 20 = 1 second)
+  animation-tick-rate: 2
+  # Async task pool size
+  async-pool-size: 4
+  # Enable performance metrics
+  metrics-enabled: true
+
+# Security settings
+security:
+  # Maximum concurrent games per player
+  max-concurrent-games: 1
+  # Game timeout (seconds, auto-cancel if no action)
+  game-timeout: 300
+  # Rate limiting: max bets per minute
+  max-bets-per-minute: 60
+  # Anti-spam cooldown (seconds)
+  bet-cooldown: 1
+
+# Leaderboard settings
+leaderboard:
+  # Enable leaderboards
+  enabled: true
+  # Update interval (seconds)
+  update-interval: 300
+  # Top players to display
+  top-players: 10
+  # Track stats for days
+  stats-retention-days: 30
+
+# VIP/Multiplier system
+vip:
+  # Enable VIP system
+  enabled: true
+  # Default multiplier for regular players
+  default-multiplier: 1.0
+  # VIP multipliers by permission (vncasino.vip.tier1, etc.)
+  tiers:
+    tier1: 1.1
+    tier2: 1.25
+    tier3: 1.5
+    tier4: 2.0
+
+# Integration settings
+integrations:
+  # PlaceholderAPI placeholders
+  placeholderapi:
+    enabled: true
+  # Discord webhook for big wins
+  discord:
+    enabled: false
+    webhook-url: ""
+    # Minimum win amount to notify
+    min-win-notify: 100000
