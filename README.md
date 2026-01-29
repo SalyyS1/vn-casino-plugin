@@ -384,3 +384,4 @@ All rights reserved © VNCasino Team
 ## Support
 
 For issues and support, please contact the development team.
+# vn-casino-plugin
