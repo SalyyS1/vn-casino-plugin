@@ -19,16 +19,21 @@ public class XocDiaGame extends AbstractGame {
     private final XocDiaConfig config;
     private final XocDiaRoomManager roomManager;
 
+    /**
+     * Create XocDia game with injected room manager.
+     * @param roomManager Shared room manager instance (DO NOT create new one here)
+     */
     public XocDiaGame(
         CurrencyManager currencyManager,
         JackpotManager jackpotManager,
         GameSessionManager sessionManager,
         Logger logger,
-        XocDiaConfig config
+        XocDiaConfig config,
+        XocDiaRoomManager roomManager
     ) {
         super(currencyManager, jackpotManager, sessionManager, logger);
         this.config = config;
-        this.roomManager = new XocDiaRoomManager(config);
+        this.roomManager = roomManager;
     }
 
     @Override

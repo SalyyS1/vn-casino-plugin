@@ -28,6 +28,7 @@ import vn.casino.game.xocdia.XocDiaGame;
 import vn.casino.game.xocdia.XocDiaRoomManager;
 import vn.casino.gui.framework.GuiManager;
 import vn.casino.i18n.MessageManager;
+import vn.casino.listener.PlayerCleanupListener;
 import vn.casino.placeholder.CasinoPlaceholders;
 
 import java.math.BigDecimal;
@@ -120,6 +121,9 @@ public final class CasinoPlugin extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+
+        // Register event listeners
+        registerListeners();
 
         registerPlaceholders();
 
@@ -280,9 +284,13 @@ public final class CasinoPlugin extends JavaPlugin {
             jackpotManager = new JackpotManager(databaseProvider, cacheProvider, currencyManager, getLogger());
 
             // Load game configurations
+            gameConfigLoader.loadGameConfigs();
             TaiXiuConfig taiXiuConfig = gameConfigLoader.loadTaiXiuConfig();
             XocDiaConfig xocDiaConfig = gameConfigLoader.loadXocDiaConfig();
             BauCuaConfig bauCuaConfig = gameConfigLoader.loadBauCuaConfig();
+
+            // Initialize room manager for Xoc Dia
+            roomManager = new XocDiaRoomManager(xocDiaConfig);
 
             // Initialize games
             taiXiuGame = new TaiXiuGame(
@@ -298,7 +306,8 @@ public final class CasinoPlugin extends JavaPlugin {
                 jackpotManager,
                 sessionManager,
                 getLogger(),
-                xocDiaConfig
+                xocDiaConfig,
+                roomManager
             );
 
             bauCuaGame = new BauCuaGame(
@@ -313,12 +322,35 @@ public final class CasinoPlugin extends JavaPlugin {
             guiManager = new GuiManager(this, scheduler, messageManager, transactionRepository);
             guiManager.setGames(taiXiuGame, xocDiaGame, bauCuaGame);
 
+            // Start game sessions
+            startGameSessions();
+
             getLogger().info("Game systems initialized (Tai Xiu, Xoc Dia, Bau Cua)");
             return true;
         } catch (Exception e) {
             getLogger().log(Level.SEVERE, "Failed to initialize game systems", e);
             return false;
         }
+    }
+
+    private void startGameSessions() {
+        // Use scheduleRound() which properly handles state transitions:
+        // WAITING -> BETTING -> CALCULATING -> RESULT -> ENDED -> (next round)
+
+        // Start Tai Xiu session loop (1 second delay)
+        scheduler.runLater(() -> sessionManager.scheduleRound(taiXiuGame, null), 20);
+
+        // Start Bau Cua session loop (2 second delay)
+        scheduler.runLater(() -> sessionManager.scheduleRound(bauCuaGame, null), 40);
+
+        // Start Xoc Dia sessions for each room (3 second delay)
+        scheduler.runLater(() -> {
+            for (var room : roomManager.getAllRooms()) {
+                sessionManager.scheduleRound(xocDiaGame, room.getId());
+            }
+        }, 60);
+
+        getLogger().info("Game sessions scheduled (auto-start enabled)");
     }
 
     private boolean registerCommands() {
@@ -355,6 +387,15 @@ public final class CasinoPlugin extends JavaPlugin {
             getLogger().log(Level.SEVERE, "Failed to register commands", e);
             return false;
         }
+    }
+
+    private void registerListeners() {
+        // Register player cleanup listener for disconnect handling
+        getServer().getPluginManager().registerEvents(
+            new PlayerCleanupListener(guiManager, taiXiuGame, xocDiaGame, bauCuaGame),
+            this
+        );
+        getLogger().info("Event listeners registered");
     }
 
     private void registerPlaceholders() {

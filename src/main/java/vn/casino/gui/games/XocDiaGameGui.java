@@ -102,11 +102,11 @@ public class XocDiaGameGui extends BaseGameGui {
     /**
      * Create bet button for specific bet type.
      */
-    private void createBetButton(StaticPane pane, XocDiaBetType betType, int x, int y, boolean canBet) {
+    private void createBetButton(StaticPane pane, XocDiaBetType betType, int x, int y, boolean canBetDisplay) {
         Material material = getBetMaterial(betType);
         String color = getBetColor(betType);
 
-        List<String> lore = canBet
+        List<String> lore = canBetDisplay
             ? List.of(
                 "<gray>" + getBetDescription(betType) + "</gray>",
                 "<yellow>Thắng x" + betType.getPayoutMultiplier() + "</yellow>",
@@ -125,6 +125,9 @@ public class XocDiaGameGui extends BaseGameGui {
             color + betType.getDisplayName() + "</color>",
             lore,
             e -> {
+                // Check state at click time, not construction time
+                GameSession clickSession = getCurrentSession(roomId);
+                boolean canBet = clickSession != null && clickSession.getState() == GameSessionState.BETTING;
                 if (canBet) {
                     placeBet(betType);
                 } else {

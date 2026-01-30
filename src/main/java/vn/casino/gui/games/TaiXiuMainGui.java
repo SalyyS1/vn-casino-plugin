@@ -88,10 +88,11 @@ public class TaiXiuMainGui extends BaseGameGui {
      * Setup TAI bet button.
      */
     private void setupTaiButton(StaticPane pane, int x, int y) {
+        // Build lore based on current state (for display only)
         GameSession session = getCurrentSession(null);
-        boolean canBet = session != null && session.getState() == GameSessionState.BETTING;
+        boolean canBetNow = session != null && session.getState() == GameSessionState.BETTING;
 
-        List<String> lore = canBet
+        List<String> lore = canBetNow
             ? List.of(
                 "<gray>Tổng >= 11</gray>",
                 "<yellow>Thắng x1.98</yellow>",
@@ -110,6 +111,9 @@ public class TaiXiuMainGui extends BaseGameGui {
             "<red><bold>TÀI (Lớn)</bold></red>",
             lore,
             e -> {
+                // Check state at click time, not construction time
+                GameSession clickSession = getCurrentSession(null);
+                boolean canBet = clickSession != null && clickSession.getState() == GameSessionState.BETTING;
                 if (canBet) {
                     placeBet(TaiXiuBetType.TAI);
                 } else {
@@ -123,10 +127,11 @@ public class TaiXiuMainGui extends BaseGameGui {
      * Setup XIU bet button.
      */
     private void setupXiuButton(StaticPane pane, int x, int y) {
+        // Build lore based on current state (for display only)
         GameSession session = getCurrentSession(null);
-        boolean canBet = session != null && session.getState() == GameSessionState.BETTING;
+        boolean canBetNow = session != null && session.getState() == GameSessionState.BETTING;
 
-        List<String> lore = canBet
+        List<String> lore = canBetNow
             ? List.of(
                 "<gray>Tổng <= 10</gray>",
                 "<yellow>Thắng x1.98</yellow>",
@@ -145,6 +150,9 @@ public class TaiXiuMainGui extends BaseGameGui {
             "<blue><bold>XỈU (Nhỏ)</bold></blue>",
             lore,
             e -> {
+                // Check state at click time, not construction time
+                GameSession clickSession = getCurrentSession(null);
+                boolean canBet = clickSession != null && clickSession.getState() == GameSessionState.BETTING;
                 if (canBet) {
                     placeBet(TaiXiuBetType.XIU);
                 } else {

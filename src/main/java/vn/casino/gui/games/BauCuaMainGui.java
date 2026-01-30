@@ -81,8 +81,8 @@ public class BauCuaMainGui extends BaseGameGui {
     /**
      * Create bet button for an animal.
      */
-    private void createAnimalButton(StaticPane pane, BauCuaBetType animal, int x, int y, boolean canBet) {
-        List<String> lore = canBet
+    private void createAnimalButton(StaticPane pane, BauCuaBetType animal, int x, int y, boolean canBetDisplay) {
+        List<String> lore = canBetDisplay
             ? List.of(
                 "<gray>Cược vào " + animal.getDisplayName() + "</gray>",
                 "",
@@ -109,6 +109,9 @@ public class BauCuaMainGui extends BaseGameGui {
             color + animal.getDisplayName() + "</color>",
             lore,
             e -> {
+                // Check state at click time, not construction time
+                GameSession clickSession = getCurrentSession(null);
+                boolean canBet = clickSession != null && clickSession.getState() == GameSessionState.BETTING;
                 if (canBet) {
                     placeBet(animal);
                 } else {
